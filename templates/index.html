@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card p-4 mx-auto" style="max-width:900px;">
+  <h3>Check an Email Message</h3>
+  <form method="post" action="/check">
+    <div class="mb-3">
+      <textarea name="message" rows="6" class="form-control" placeholder="Paste email text here..."></textarea>
+    </div>
+    <button class="btn btn-primary">Check Message</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center">
+  <h3>Admin</h3>
+  <div>
+    <a href="/admin/add" class="btn btn-success btn-sm">Add</a>
+    <a href="/admin/api" class="btn btn-secondary btn-sm">API Settings</a>
+  </div>
+</div>
+<table class="table table-striped mt-3">
+  <thead><tr><th>ID</th><th>Text</th><th>Label</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for r in rows %}
+    <tr>
+      <td>{{r['id']}}</td>
+      <td>{{r['text']|truncate(80)}}</td>
+      <td>{{r['label']}}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="/admin/edit/{{r['id']}}">Edit</a>
+        <form method="post" action="/admin/delete/{{r['id']}}" style="display:inline-block;"><button class="btn btn-sm btn-danger">Delete</button></form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card p-4 mx-auto" style="max-width:720px;">
+  <h4>API settings</h4>
+  <form method="post">
+    <div class="mb-3"><input class="form-control" name="api_url" placeholder="API endpoint" value="{% if row %}{{row['api_url']}}{% endif %}"></div>
+    <div class="mb-3"><input class="form-control" name="api_token" placeholder="API token" value="{% if row %}{{row['api_token']}}{% endif %}"></div>
+    <button class="btn btn-primary">Save</button>
+  </form>
+  <hr>
+  <form method="post" action="/admin/api/send-test"><button class="btn btn-outline-primary">Send test payload</button></form>
+</div>
+{% endblock %}
